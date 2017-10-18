@@ -4,11 +4,17 @@ class SearchController < ApplicationController
     radius = 5.0
     zip = params["q"]
 
-    @conn = Faraday.new(url: "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=#{fuel_types}&state=CO&radius=#{radius}&zip=#{zip}&limit=5&api_key=#{ENV["NREL_KEY"]}&format=JSON")
-
-  binding.pry
+    conn = Faraday.get "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?fuel_type=LPG,ELEC&state=CO&radius=5.0&zip=80203&limit=5&api_key=nuHt8BQdoOEbMl3sWRKXTOYNjGtEfFW814oWQNyE&format=JSON"
 
 
+    raw_stations = JSON.parse(conn.body, symbolize_names: true)[:fuel_stations]
 
+    binding.pry
+
+
+
+    @stations = raw_stations.each do |station|
+      Station.new(station)
+    end
   end
 end
