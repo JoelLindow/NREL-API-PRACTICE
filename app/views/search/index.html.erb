@@ -1,0 +1,7 @@
+<h3>The Closest Stations To You Are:</h3>
+
+<% @stations.each do |station| %>
+<h5 class="name"><%= station.name %></h5>
+<p class="address">Address: <%= station.address %></p>
+
+<% end %>
