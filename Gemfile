@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'faraday'
 gem 'figaro'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry'
@@ -20,6 +21,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'awesome_print'
+  gem 'capybara'
 end
 group :test do
   gem 'vcr'
