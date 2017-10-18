@@ -9,10 +9,6 @@ class SearchController < ApplicationController
 
     raw_stations = JSON.parse(conn.body, symbolize_names: true)[:fuel_stations]
 
-    binding.pry
-
-
-
     @stations = raw_stations.each do |station|
       Station.new(station)
     end
