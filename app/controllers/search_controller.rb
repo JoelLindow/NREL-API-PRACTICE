@@ -3,13 +3,14 @@ class SearchController < ApplicationController
     fuel_types = "LPG,ELEC"
     radius = 6.0
     zip = params["q"]
+    limit = 10
 
-    request = Faraday.get "https://developer.nrel.gov/api/alt-fuel-stations/v1.json?format=JSON" do |faraday|
+    request = Faraday.get "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?format=JSON" do |faraday|
       faraday.params[:fuel_type] = fuel_types
       faraday.params[:state] = "CO"
       faraday.params[:radius] = radius
-      faraday.params[:zip] = zip
-      faraday.params[:limit] = 10
+      faraday.params[:location] = zip
+      faraday.params[:limit] = limit
       faraday.params[:api_key] = ENV["NREL_KEY"]
     end
 

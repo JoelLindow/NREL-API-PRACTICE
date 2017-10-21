@@ -2,10 +2,13 @@
 <hr>
 
 <% @stations.each do |station| %>
+<div class="station">
+
 <h5 class="name"><%= station.name %></h5>
 <p class="address">Address: <%= station.address %></p>
 <p class="fuel_type">Fuel Types: <%= station.fuel_types %></p>
 <p class="distance">Distance: </p>
 <p class="access_time">Access Times: <%= station.access_times %></p>
+</div>
 <hr>
 <% end %>
