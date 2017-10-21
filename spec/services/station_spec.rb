@@ -10,14 +10,14 @@ describe Station do
       zip: "80241",
       fuel_type_code: "ELEC",
       distance: 1.0,
-      access_days_time: "24 hours"
+      access_days_time: "24 Hours"
     }
 
     station = Station.new(valid_attributes)
     expect(station.name).to eq("Joel Station")
     expect(station.address).to eq("12944 Dexter Way Thornton CO 80241")
-    expect(station.fuel_type).to eq("ELEC")
-    expect(station.distance).to eq("1.0")
-    expect(station.fuel_type).to eq("24 Hours")
+    expect(station.fuel_types).to eq("ELEC")
+    expect(station.distance).to eq(1.0)
+    expect(station.access_times).to eq("24 Hours")
   end
 end
