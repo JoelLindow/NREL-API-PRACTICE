@@ -1,6 +1,6 @@
 class NrelService
 
-  def api_call(zip)
+  def get_json_with_call(zip)
     request = Faraday.get "https://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?format=JSON" do |faraday|
       faraday.params[:fuel_type] = "LPG,ELEC"
       faraday.params[:state] = "CO"
