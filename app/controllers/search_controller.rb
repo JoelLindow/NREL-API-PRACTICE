@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
   def index
-    @stations = StationsService.new.api_call(params[:q])
+    @stations = StationsService.new.create_stations(params[:q])
   end
 end
