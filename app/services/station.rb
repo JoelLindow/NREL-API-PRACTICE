@@ -12,4 +12,5 @@ class Station
   def address
     "#{@station_data[:street_address]} #{@station_data[:city]} #{@station_data[:state]} #{@station_data[:zip]}"
   end
+
 end
